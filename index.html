@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook-P4-M14.5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .activity {
+            margin-bottom: 20px;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s;
+        }
+        .banner:hover {
+            background-color: #45a049;
+        }
+        .banner hr {
+            border: none;
+            border-top: 1px solid white;
+            margin: 5px 0;
+        }
+        .subtitle {
+            font-size: 0.9em;
+            color: #e0e0e0;
+        }
+        .content {
+            display: none;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            const selectedTime = document.getElementById('class-time').value;
+
+            const activity2 = document.getElementById('activity-2');
+            const activity4Step5 = document.getElementById('activity-4-step-5');
+
+            // Restaurar visibilidad predeterminada
+            if (activity2) activity2.style.display = "block";
+            if (activity4Step5) activity4Step5.style.display = "table-row";
+
+            // Aplicar lógica según el tiempo seleccionado
+            if (selectedTime === '45') {
+                if (activity2) activity2.style.display = "none";
+            } else if (selectedTime === '40') {
+                if (activity2) activity2.style.display = "none";
+                if (activity4Step5) activity4Step5.style.display = "none";
+            }
+
+            // Actualizar el título dinámico de la clase
+            document.getElementById('selected-time').innerText = `Tiempo efectivo de clase: ${selectedTime} minutos`;
+        }
+
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        Playbook-P4-M14.5
+    </div>
+
+    <div class="container">
+        <div class="dropdown">
+            <label for="class-time">Tiempo efectivo de Clase:</label>
+            <select id="class-time" onchange="updateActivities()">
+                <option value="50">50 minutos</option>
+                <option value="45">45 minutos</option>
+                <option value="40">40 minutos</option>
+            </select>
+        </div>
+
+        <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+        
+    <!-- Actividad 0 -->
+<div id="activity-0" class="activity">
+    <div class="banner" onclick="toggleContent('activity_0_content')">
+        <div class="title">🔍 Actividad 0: Revisión de Misión</div>
+        <hr style="border: none; border-top: 1px solid white; margin: 5px 0;">
+        <div class="subtitle">Preparar materiales esenciales para el desafío del día.</div>
+    </div>
+    <div id="activity_0_content" class="content">
+        <table>
+            <tr style="background-color: #f4f4f4;">
+                <th>Acción</th>
+                <th>Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 1:</strong> Proyectar la Diapositiva 1 "Materiales". Verificar la disponibilidad de:
+                    <ul>
+                        <li>3 Cutebots</li>
+                        <li>Micro:bit con batería</li>
+                        <li>Cinta adhesiva u otros delimitadores creativos</li>
+                        <li>Magic Boards</li>
+                    </ul>
+                </td>
+                <td>No aplica</td>
+            </tr>
+        </table>
+    </div>
+</div>
+    
+    <!-- Actividad 1 -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('activity_1_content')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club</div>
+        <hr style="border: none; border-top: 1px solid white; margin: 5px 0;">
+        <div class="subtitle">Inicio motivacional para introducir el Circuito de Precisión.</div>
+    </div>
+    <div id="activity_1_content" class="content">
+        <table>
+            <tr style="background-color: #f4f4f4;">
+                <th>Acción</th>
+                <th>Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 1:</strong> Proyectar Diapositiva 2 con el tema del "Circuito de Precisión".
+                </td>
+                <td>
+                    "¡Hola, Genios! 🌟 Hoy exploraremos un desafío emocionante: ¡el Circuito de Precisión! Vamos a coordinar tres Cutebots en trayectorias únicas y sincronizadas. ¡Prepárense para un día de aprendizaje y diversión!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 2:</strong> Proyectar Diapositiva 3 "¿Cómo estás?" con poses relacionadas con la programación del Circuito de Precisión.
+                </td>
+                <td>
+                    "¡Genios! Díganme cómo están hoy: Si están emocionados, levanten ambas manos como si estuvieran manejando tres Cutebots al mismo tiempo. Si sienten que necesitan un poco de energía extra, ¡onden sus manos como si dieran una señal de inicio a una carrera!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 3:</strong> Proyectar Diapositiva 4 "Ritual de Agradecimiento" y guiar a los estudiantes en el ritual temático.
+                </td>
+                <td>
+                    "Juntamos nuestras manos y decimos: '¡Gracias por estar aquí, Genios! Hoy será un día lleno de aprendizaje, coordinación y trabajo en equipo. ¡Vamos a enfrentar el Circuito de Precisión con toda nuestra creatividad!'"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 4:</strong> Proyectar Diapositiva 5 "Objetivos del Circuito de Precisión".
+                </td>
+                <td>
+                    "Hoy nuestros objetivos son:
+                    <ul>
+                        <li>Diseñar trayectorias precisas para tres Cutebots.</li>
+                        <li>Sincronizar luces LED con los movimientos.</li>
+                        <li>¡Trabajar en equipo para lograr el Circuito de Precisión sin errores!</li>
+                    </ul>
+                    ¿Están listos para este desafío?"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<!-- Actividad 2 -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('activity_2_content')">
+        <div class="title">🧠 Actividad 2: Brain Vitamin</div>
+        <hr style="border: none; border-top: 1px solid white; margin: 5px 0;">
+        <div class="subtitle">Simulación de trayectorias con el "Juego de Circuito Humano".</div>
+    </div>
+    <div id="activity_2_content" class="content">
+        <table>
+            <tr style="background-color: #f4f4f4;">
+                <th>Acción</th>
+                <th>Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 1:</strong> Proyectar Diapositiva 6 "Juego de Circuito Humano". Indicar que los estudiantes formarán un "circuito humano" para simular el movimiento de tres Cutebots.
+                </td>
+                <td>
+                    "¡Genios! Vamos a convertirnos en un circuito humano. Formemos grupos de tres y cada uno representará un Cutebot. Simulen movimientos sincronizados: uno avanza, otro gira, y otro activa luces con las manos. ¡Vamos a coordinarnos como los verdaderos robots que somos!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 2:</strong> Proyectar Diapositiva 7 "Carrera de Comandos". Los equipos deben responder rápidamente a comandos relacionados con trayectorias.
+                </td>
+                <td>
+                    "¡Ahora hagamos una carrera de comandos! Cuando diga 'recto', el primero en tu grupo debe avanzar un paso. Si digo 'giro', el segundo debe girar en su lugar. Y si digo 'luces', el tercero levanta las manos y dice '¡flash!'. El equipo más coordinado gana. ¡Prepárense!"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<!-- Actividad 3 -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('activity_3_content')">
+        <div class="title">🤝 Actividad 3: Team Gnius</div>
+        <hr style="border: none; border-top: 1px solid white; margin: 5px 0;">
+        <div class="subtitle">Planificación y organización en equipo para el Circuito de Precisión.</div>
+    </div>
+    <div id="activity_3_content" class="content">
+        <table>
+            <tr style="background-color: #f4f4f4;">
+                <th>Acción</th>
+                <th>Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 1:</strong> Proyectar la Diapositiva 8 "Introducción al Team Gnius". Explicar cómo los roles y las ideas colaborativas guiarán la planificación del desafío.
+                </td>
+                <td>
+                    "¡Genios! Ahora trabajaremos como verdaderos innovadores. Usaremos el Team CANVAS para diseñar las trayectorias y las sincronizaciones de luces para el Circuito de Precisión. ¡Juntos somos imparables!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 2:</strong> Proyectar la Diapositiva 9 "Formación de Equipos". Explicar que los estudiantes formarán equipos de 3 personas y asignarán roles: Líder, Programador y Observador.
+                </td>
+                <td>
+                    "¡Formen equipos de 3 personas! El Líder coordina, el Programador traduce ideas en código, y el Observador asegura que todo sea funcional. ¡Recuerden que cada rol es esencial para el éxito!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 3:</strong> Proyectar la Diapositiva 10 "Preparación de Materiales". Pedir a los estudiantes que recojan los Cutebots, Micro:bits y Magic Boards para empezar.
+                </td>
+                <td>
+                    "¡Es momento de reunir los materiales! Cada equipo debe recoger sus Cutebots, Micro:bits con batería, Magic Boards y cualquier material que necesiten para delimitar sus circuitos. ¡Preparémonos para la acción!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 4:</strong> Proyectar la Diapositiva 11 "Team CANVAS". Pedir a los equipos que dibujen trayectorias, sincronicen luces y propongan ideas para evitar colisiones.
+                </td>
+                <td>
+                    "¡Es hora de planificar en el Team CANVAS! Dibujen sus trayectorias en las Magic Boards, definan cómo sincronizarán las luces y ajusten los tiempos para que los tres Cutebots trabajen en equipo. Líderes, organicen las tareas; Programadores, diseñen estrategias; Observadores, aseguren claridad."
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 5:</strong> Proyectar la Diapositiva 12 "Revisión en Equipo". Supervisar mientras los equipos discuten y ajustan sus planes con aportes colaborativos.
+                </td>
+                <td>
+                    "¡Es hora de pulir sus ideas! Líderes, organicen los ajustes necesarios. Programadores, asegúrense de que los movimientos y luces sean claros. Observadores, revisen que las trayectorias sean funcionales y eviten colisiones. ¡El éxito está en los detalles!"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<!-- Actividad 4 -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('activity_4_content')">
+        <div class="title">🚀 Actividad 4: Circuito de Precisión</div>
+        <hr style="border: none; border-top: 1px solid white; margin: 5px 0;">
+        <div class="subtitle">Desarrollar y ejecutar trayectorias precisas con los Cutebots.</div>
+    </div>
+    <div id="activity_4_content" class="content">
+        <table>
+            <tr style="background-color: #f4f4f4;">
+                <th>Acción</th>
+                <th>Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 1:</strong> Proyectar la Diapositiva 13 "Desafío del Día". Explicar la misión general del Circuito de Precisión.
+                </td>
+                <td>
+                    "¡Genios! Llegó la hora del Circuito de Precisión. Usen lo que planearon en el Team CANVAS para que sus Cutebots se muevan con precisión, sincronicen sus luces y logren coordinarse como un equipo perfecto. ¡Es momento de aplicar todo lo aprendido!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 2:</strong> Proyectar la Diapositiva 14 "Delimitación del Circuito". Pedir a los estudiantes que delimiten los circuitos usando cinta adhesiva u otros objetos.
+                </td>
+                <td>
+                    "¡Es hora de preparar sus circuitos! Usen cinta adhesiva, mochilas, estuches o cualquier material que tengan a la mano. Diseñen el espacio según el plan que trazaron en el Team CANVAS. ¡Denle forma a sus trayectorias!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 3:</strong> Proyectar la Diapositiva 15 "Niveles del Circuito de Precisión". Detallar cada nivel, permitiendo que los equipos elijan el que más les desafíe.
+                </td>
+                <td>
+                    "¡Genios! Aquí están los niveles del Circuito de Precisión. Cada nivel tiene su propio desafío, y su equipo puede elegir el que les inspire más. ¡Escuchen con atención los detalles de cada uno!
+                    <ul>
+                        <li><strong>Rookie:</strong> Diseñar un circuito básico donde tres Cutebots sigan trayectorias simples.</li>
+                        <li><strong>Master:</strong> Crear un circuito con rutas alternativas y sincronizar luces antes de giros.</li>
+                        <li><strong>Hacker:</strong> Diseñar una coreografía compleja donde los Cutebots alternen movimientos dentro de un circuito intrincado.</li>
+                    </ul>
+                    ¡Elijan su nivel y prepárense para el reto!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 4:</strong> Proyectar la Diapositiva 16 "Manos a la Obra". Supervisar mientras los equipos programan y prueban sus trayectorias.
+                </td>
+                <td>
+                    "¡Es momento de convertir sus ideas en realidad! Programen sus Cutebots para completar las trayectorias, sincronizar luces en los giros, y evitar colisiones. ¡Denle vida al Circuito de Precisión!"
+                </td>
+            </tr>
+            <tr id="activity-4-step-5">
+                <td>
+                    <strong>Paso 5:</strong> Proyectar la Diapositiva 17 "Pruebas y Ajustes". Supervisar mientras los equipos afinan sus trayectorias y tiempos.
+                </td>
+                <td>
+                    "¡Es hora de probar! Revisen que sus trayectorias y luces funcionen como lo planearon. Si algo no sale bien, ajusten y vuelvan a intentarlo. ¡Cada detalle cuenta para que su circuito sea un éxito!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 6:</strong> Proyectar la Diapositiva 18 "Exhibición del Trabajo". Los equipos presentan sus resultados y reflexionan sobre sus logros.
+                </td>
+                <td>
+                    "¡Genios! Es momento de brillar. Presenten su trabajo al grupo. Compartan cómo lograron coordinar movimientos, sincronizar luces y resolver los problemas que enfrentaron. ¡Inspiremos con nuestras ideas!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 7:</strong> Proyectar la Diapositiva 19 "Revisión de Objetivos". Guiar la reflexión sobre el aprendizaje y el trabajo colaborativo.
+                </td>
+                <td>
+                    "¡Genios, qué gran trabajo! Hoy logramos diseñar trayectorias precisas, sincronizar luces y trabajar en equipo. Demostraron lo que significa ser un Gnius. ¡Estoy muy orgulloso de ustedes!"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 5 -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('activity_5_content')">
+        <div class="title">🏅 Actividad 5: Reflexión y Cierre</div>
+        <hr style="border: none; border-top: 1px solid white; margin: 5px 0;">
+        <div class="subtitle">Reflexión sobre el aprendizaje y organización del espacio de trabajo.</div>
+    </div>
+    <div id="activity_5_content" class="content">
+        <table>
+            <tr style="background-color: #f4f4f4;">
+                <th>Acción</th>
+                <th>Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 1:</strong> Proyectar la Diapositiva 20 "Reflexión del Día". Guiar la discusión con preguntas clave para detonar interés en el aprendizaje.
+                </td>
+                <td>
+                    "¡Genios, reflexionemos sobre esta increíble experiencia! Piensen en estas preguntas:
+                    <ul>
+                        <li>¿Qué aprendieron hoy que no sabían antes?</li>
+                        <li>¿Qué fue lo más divertido o desafiante del Circuito de Precisión?</li>
+                        <li>¿Cómo se sintieron trabajando en equipo?</li>
+                    </ul>
+                    ¡Compartan sus ideas con el grupo!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 2:</strong> Proyectar la Diapositiva 21 "Organización del Espacio". Supervisar mientras los estudiantes recogen materiales y organizan el aula.
+                </td>
+                <td>
+                    "Antes de terminar, honremos nuestro espacio de trabajo. Organicen los Cutebots, Magic Boards, y cualquier otro material utilizado. Dejar el lugar limpio es una forma de respetar nuestro esfuerzo. ¡Gracias por ser un equipo tan responsable y creativo!"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+        
+    </div> <!-- Cierre del container -->
+</body>
+</html>
